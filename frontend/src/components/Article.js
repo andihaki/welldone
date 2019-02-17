@@ -8,7 +8,7 @@ const IconText = ({ type, text }) => (
   </span>
 );
 
-const Article = ({ articles }) => (
+const Article = ({ data }) => (
   <List
     itemLayout="vertical"
     size="large"
@@ -18,7 +18,7 @@ const Article = ({ articles }) => (
       },
       pageSize: 3
     }}
-    dataSource={articles}
+    dataSource={data}
     footer={
       <div>
         <b>ant design</b> footer part
