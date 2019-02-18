@@ -1,5 +1,6 @@
 import React from "react";
 import { List, Avatar, Icon } from "antd";
+import { Link } from "react-router-dom";
 
 const IconText = ({ type, text }) => (
   <span>
@@ -19,11 +20,6 @@ const Article = ({ data }) => (
       pageSize: 3
     }}
     dataSource={data}
-    footer={
-      <div>
-        <b>ant design</b> footer part
-      </div>
-    }
     renderItem={item => (
       <List.Item
         key={item.title}
@@ -42,7 +38,7 @@ const Article = ({ data }) => (
       >
         <List.Item.Meta
           avatar={<Avatar src={item.avatar} />}
-          title={<a href={item.href}>{item.title}</a>}
+          title={<Link to={"/" + item.id}>{item.title}</Link>}
           description={item.description}
         />
         {item.content}
