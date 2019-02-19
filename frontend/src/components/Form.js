@@ -4,7 +4,7 @@ import { Form, Input, Button } from "antd";
 
 class CustomForm extends React.Component {
   handleFormSubmit = (event, requestType, articleId) => {
-    event.preventDefault();
+    // event.preventDefault();
     const title = event.target.elements.title.value;
     const content = event.target.elements.content.value;
     console.log(title, content, requestType);
