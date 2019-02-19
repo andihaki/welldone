@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 
 import Article from "../components/Article";
+import CustomForm from "../components/Form";
 
 const listData = [];
 for (let i = 0; i < 23; i++) {
@@ -28,7 +29,14 @@ class ArticleList extends React.Component {
       .catch(error => alert(error));
   }
   render() {
-    return <Article data={this.state.articles} />;
+    return (
+      <React.Fragment>
+        <Article data={this.state.articles} />
+        <br />
+        <h2>Create an article</h2>
+        <CustomForm requestType="post" articleId={null} />
+      </React.Fragment>
+    );
   }
 }
 
