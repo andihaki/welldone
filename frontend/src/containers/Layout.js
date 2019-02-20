@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const { Header, Content, Footer } = Layout;
 
-const CustomLayout = ({ children }) => (
+const CustomLayout = ({ children, isAuthenticated }) => (
   <Layout className="layout">
     <Header>
       <div className="logo" />
@@ -14,8 +14,16 @@ const CustomLayout = ({ children }) => (
         defaultSelectedKeys={["2"]}
         style={{ lineHeight: "64px" }}
       >
-        <Menu.Item key="1">nav 1</Menu.Item>
-        <Menu.Item key="2">nav 2</Menu.Item>
+        <Menu.Item key="1">
+          <Link to="/">Articles</Link>
+        </Menu.Item>
+        {isAuthenticated ? (
+          <Menu.Item key="2">Logout</Menu.Item>
+        ) : (
+          <Menu.Item key="2">
+            <Link to="/login">Login</Link>
+          </Menu.Item>
+        )}
       </Menu>
     </Header>
     <Content style={{ padding: "0 50px" }}>
