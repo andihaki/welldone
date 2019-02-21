@@ -28,6 +28,7 @@ const authFail = (state, action) => {
 };
 
 const authSuccess = (state, action) => {
+  // console.log(action.token);
   return updateObject(state, {
     token: action.token,
     error: false,

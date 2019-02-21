@@ -38,7 +38,7 @@ const Article = ({ data }) => (
       >
         <List.Item.Meta
           avatar={<Avatar src={item.avatar} />}
-          title={<Link to={"/" + item.id}>{item.title}</Link>}
+          title={<Link to={"article/" + item.id}>{item.title}</Link>}
           description={item.description}
         />
         {item.content}

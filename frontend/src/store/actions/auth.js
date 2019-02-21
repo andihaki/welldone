@@ -47,13 +47,14 @@ export const authLogin = (username, password) => {
   return dispatch => {
     dispatch(authStart());
     axios
-      .post(`http://127.0.0.1:8000/api-auth/login/`, {
+      .post(`http://127.0.0.1:8000/rest-auth/login/`, {
         username,
         password
       })
       .then(res => {
         const token = res.data.key;
-        const expiredInHour = new Date(new Date().getTime() * 3600 * 1000);
+        const expiredInHour = new Date(new Date().getTime() + 3600 * 1000);
+        // const expiredInHour = new Date(new Date().getTime() + 3600 * 1000);
         localStorage.setItem("token", token);
         localStorage.setItem("expiredTime", expiredInHour);
         dispatch(authSuccess(token));
@@ -69,7 +70,7 @@ export const authSignup = (username, email, password1, password2) => {
   return dispatch => {
     dispatch(authStart());
     axios
-      .post(`http://127.0.0.1:8000/api-auth/registration/`, {
+      .post(`http://127.0.0.1:8000/rest-auth/registration/`, {
         username,
         email,
         password1,
@@ -77,7 +78,7 @@ export const authSignup = (username, email, password1, password2) => {
       })
       .then(res => {
         const token = res.data.key;
-        const expiredInHour = new Date(new Date().getTime() * 3600 * 1000);
+        const expiredInHour = new Date(new Date().getTime() + 3600 * 1000);
         localStorage.setItem("token", token);
         localStorage.setItem("expiredTime", expiredInHour);
         dispatch(authSuccess(token));
