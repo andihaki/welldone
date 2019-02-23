@@ -8,10 +8,10 @@ import WrappedRegistrationForm from "./containers/Signup";
 
 const BaseRouter = () => (
   <div>
+    <Route exact path="/" component={ArticleList} />
     <Route exact path="/article/:articleId" component={ArticleDetail} />
     <Route exact path="/login" component={WrappedNormalLoginForm} />
     <Route exact path="/signup" component={WrappedRegistrationForm} />
-    <Route exact path="/" component={ArticleList} />
   </div>
 );
 
