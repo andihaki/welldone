@@ -38,3 +38,6 @@ mutation {
   }
 }
 ```
+- Fragment
+mirip subQuery kalau di SQL
+
