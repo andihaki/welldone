@@ -48,6 +48,9 @@ INSTALLED_APPS = [
     'rest_auth.registration',
     'corsheaders',
 
+    # for graphql
+    'graphene_django',
+
     'articles',
 ]
 
@@ -152,3 +155,8 @@ SITE_ID = 1
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
 ACCOUNT_EMAIL_REQUIRED = False
+
+
+GRAPHENE = {
+    'SCHEMA': 'src.schema.schema',
+}
