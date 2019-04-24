@@ -20,12 +20,15 @@ const CustomLayout = ({ children, isAuthenticated, onLogout }) => (
         <Menu.Item key="1">
           <Link to="/">Articles</Link>
         </Menu.Item>
+        <Menu.Item key="2">
+          <Link to="/articles2">Articles Graphql</Link>
+        </Menu.Item>
         {isAuthenticated ? (
-          <Menu.Item key="2" onClick={onLogout}>
+          <Menu.Item key="99" style={{ float: "right" }} onClick={onLogout}>
             Logout
           </Menu.Item>
         ) : (
-          <Menu.Item key="2">
+          <Menu.Item key="99" style={{ float: "right" }}>
             <Link to="/login">Login</Link>
           </Menu.Item>
         )}
