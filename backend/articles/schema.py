@@ -33,6 +33,7 @@ class CreateArticle(graphene.Mutation):
         article = Article(title=title, content=content)
         article.save()
 
+        # pylint: disable=no-member
         return CreateArticle(
             id=article.id,
             title=article.title,
