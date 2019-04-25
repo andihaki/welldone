@@ -1,29 +1,3 @@
-# other
-
-## deploy to heroku (subtree)
-
-https://medium.com/@shalandy/deploy-git-subdirectory-to-heroku-ea05e95fce1f
-
-### add Procfile
-
-```
-web: gunicorn app_namep.wsgi --log-file -
-```
-
-### add Procfile.windows
-
-```
-web: python manage.py runserver 0.0.0.0:5000
-```
-
-```bash
-heroku login
-heroku git:remote -a guarded-badlands-69959
-heroku config:set DISABLE_COLLECTSTATIC=1
-git subtree push --prefix backend heroku master
-heroku ps:scale web=1
-```
-
 # apa ini?
 
 aplikasi backend sederhana menggunakan django & django-rest-framework
@@ -77,7 +51,7 @@ mutation {
 
 # CONTOH
 
-# query
+## query
 
 ```graphql
 query {
@@ -85,6 +59,39 @@ query {
     id
     title
     content
+  }
+}
+```
+
+```graphql
+query {
+  users {
+    username
+  }
+}
+```
+
+## mutation
+
+```graphql
+mutation {
+  createArticle(title: "it works", content: "yup") {
+    id
+    content
+    title
+  }
+}
+```
+
+```graphql
+mutation {
+  createUser(username: "guest", password: "password", email: "-") {
+    user {
+      id
+      email
+      password
+      username
+    }
   }
 }
 ```
