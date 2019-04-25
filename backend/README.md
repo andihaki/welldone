@@ -1,3 +1,15 @@
+# other
+
+## deploy to heroku (subtree)
+
+https://medium.com/@shalandy/deploy-git-subdirectory-to-heroku-ea05e95fce1f
+
+```bash
+heroku login
+heroku git:remote -a guarded-badlands-69959
+git subtree push --prefix backend heroku master
+```
+
 # apa ini?
 
 aplikasi backend sederhana menggunakan django & django-rest-framework
