@@ -7,7 +7,7 @@ https://medium.com/@shalandy/deploy-git-subdirectory-to-heroku-ea05e95fce1f
 ### add Procfile
 
 ```
-web: gunicorn gettingstarted.wsgi --log-file -
+web: gunicorn app_namep.wsgi --log-file -
 ```
 
 ### add Procfile.windows
