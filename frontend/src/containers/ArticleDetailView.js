@@ -12,13 +12,13 @@ class ArticleDetail extends React.Component {
   componentDidMount() {
     const articleId = this.props.match.params.articleId;
     axios
-      .get(`http://127.0.0.1:8000/api/${articleId}/`)
+      .get(`https://kodebaik.herokuapp.com/api/${articleId}/`)
       .then(res => this.setState({ article: res.data }))
       .catch(error => alert(error));
   }
   handleDelete = articleId => {
     axios
-      .delete(`http://127.0.0.1:8000/api/${articleId}/`)
+      .delete(`https://kodebaik.herokuapp.com/api/${articleId}/`)
       .then(res => console.log(res))
       .catch(err => console.error(err));
     this.props.history.push("/");

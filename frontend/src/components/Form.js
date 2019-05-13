@@ -11,7 +11,7 @@ class CustomForm extends React.Component {
 
     if (requestType === "post") {
       axios
-        .post(`http://127.0.0.1:8000/api/`, {
+        .post(`https://kodebaik.herokuapp.com/api/`, {
           title,
           content
         })
@@ -21,7 +21,7 @@ class CustomForm extends React.Component {
 
     if (requestType === "put") {
       axios
-        .put(`http://127.0.0.1:8000/api/${articleId}/`, {
+        .put(`https://kodebaik.herokuapp.com/api/${articleId}/`, {
           title,
           content
         })
