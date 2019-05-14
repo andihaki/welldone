@@ -9,3 +9,7 @@ aplikasi sederhana untuk fullstack developer kekinian
 # frontend
 
 - create-react-app v2
+
+# step
+
+https://www.howtographql.com/react-apollo/2-queries-loading-links/

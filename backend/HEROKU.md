@@ -22,3 +22,7 @@ git subtree push --prefix backend heroku master
 heroku ps:scale web=1
 heroku run python manage.py migrate
 ```
+
+# run command
+
+heroku run python manage.py xxx

@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <title>Tes Bukalapak 1</title>
+    <style>
+      .comment-item {
+        border: 1px solid #000;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Comments</h1>
+    <div class="comment-list" data-count="3">
+      No Comments
+    </div>
+  </body>
+  <script type="text/javascript">
+    const commentList = document.querySelector("div.comment-list");
+    const commentShow = commentList.getAttribute("data-count");
+
+    const api = "https://jsonplaceholder.typicode.com/comments?postId=1";
+
+    const isError = response => {
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
+      return response;
+    };
+
+    const renderComment = comment => {
+      const Parent = document.createElement("div");
+      const Name = document.createElement("div");
+      const Body = document.createElement("div");
+      const name = document.createTextNode(comment.name);
+      const body = document.createTextNode(comment.body);
+
+      Parent.className = "comment-item";
+      Body.className = "comment-item__message";
+      Name.className = "comment-item__username";
+
+      Body.appendChild(body);
+      Name.appendChild(name);
+      Parent.appendChild(Name);
+      Parent.appendChild(Body);
+
+      return Parent;
+    };
+
+    const getComments = url => {
+      commentList.innerHTML = "Loading...";
+
+      fetch(url)
+        .then(isError)
+        .then(response => response.json())
+        .then(data => {
+          commentList.innerHTML = "";
+          data
+            .slice(0, commentShow)
+            .forEach(comment =>
+              commentList.appendChild(renderComment(comment))
+            );
+        })
+        .catch(error => (commentList.innerHTML = `<div>Oops ${error}</div>`));
+    };
+    getComments(api);
+  </script>
+</html>
