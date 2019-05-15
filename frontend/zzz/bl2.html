@@ -39,5 +39,26 @@
       </tbody>
     </table>
   </body>
-  <script type="text/javascript"></script>
+  <script type="text/javascript">
+    function countInvalidColor(D, T) {
+      const tr = document.querySelectorAll("tr");
+      let incorrect = 0;
+      const oneDay = 60 * 60 * 24 * 1000;
+      tr.forEach(row => {
+        const bgColor = row.style.backgroundColor;
+        const returnDate = row.children[2].innerText || D;
+        const borrowDate = row.children[1].innerText;
+        const deltaDate = new Date(returnDate) - new Date(borrowDate);
+        const isOverdue = deltaDate / oneDay > T;
+        incorrect =
+          (isOverdue && bgColor !== "red") || (!isOverdue && bgColor === "red")
+            ? incorrect + 1
+            : incorrect;
+        // console.log(returnDate, borrowDate, isOverdue, bgColor, incorrect);
+      });
+      return incorrect;
+    }
+    totalInvalidColor = countInvalidColor("2016-11-30", 14);
+    console.log(totalInvalidColor);
+  </script>
 </html>

@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>Tes Bukalapak 3</title>
+  </head>
+  <body>
+    <h1>Validation</h1>
+    <form>
+      <input type="radio" id="type_person" name="type" value="person" checked />
+      <input type="radio" id="type_company" name="type" value="company" />
+
+      <input type="text" id="first_name" name="first_name" value="John" />
+      <input type="text" id="last_name" name="last_name" value="Doe" />
+      <input type="text" id="email" name="email" value="john@example.com" />
+      <input type="text" id="company_name" name="company_name" value="" />
+      <input type="text" id="phone" name="phone" value="234-567-890" />
+    </form>
+  </body>
+  <script type="text/javascript">
+    function personValidation() {
+      const firstName = document.querySelector("#first_name").value;
+      const lastName = document.querySelector("#last_name").value;
+      const email = document.querySelector("#email").value;
+
+      const isValidName = firstName.length && lastName.length;
+      const emailRegex = /^([a-z0-9.]{1,64})@([a-z0-9.]){1,64}$/i;
+
+      return isValidName && emailRegex.test(email);
+    }
+    function companyValidation() {
+      const companyName = document.querySelector("#company_name").value;
+      const phone = document.querySelector("#phone").value;
+
+      const isValidCompanyName = companyName.length;
+      // const phoneRegex = /^([0-9\-\s]){6,}$/;
+      // const phoneRegex = /^\d\s?|(-?){6,}$/;
+      const phoneRegex = /^\d([- ]*\d){5,}$/; //https://stackoverflow.com/questions/18949055/regular-expression-with-number-spaces-dashes-limited-to-8-13-numbers
+      return isValidCompanyName && phoneRegex.test(phone);
+    }
+    function solution(isPerson) {
+      if (isPerson == "person") {
+        return personValidation();
+      } else {
+        return companyValidation();
+      }
+    }
+    const radioButton = document.querySelectorAll('input[type="radio"]');
+    radioButton.forEach(rb => {
+      rb.onclick = function() {
+        if (rb.checked) {
+          console.log(solution(rb.value));
+        }
+      };
+    });
+  </script>
+</html>
