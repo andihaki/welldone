@@ -179,3 +179,5 @@ GRAPHENE = {
         'graphql_jwt.middleware.JSONWebTokenMiddleware',
     ]
 }
+
+SESSION_COOKIE_AGE = 60 * 5
